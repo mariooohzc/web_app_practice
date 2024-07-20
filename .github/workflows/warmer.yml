@@ -11,7 +11,7 @@ on:
     #       │ │ │   │ │
     #       │ │ │   │ │
     #       * * *   * *
-    - cron: '*/1 * * * *'
+    - cron: 1 * * * *
 
 env:
   REPOSITORY_NAME: ${{ github.event.repository.name }}
