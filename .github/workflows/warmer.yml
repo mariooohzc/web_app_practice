@@ -22,4 +22,4 @@ jobs:
 
     steps:
       - name: cURL Swagger
-        run: curl https://$GITHUB_REPOSITORY_OWNER-$REPOSITORY_NAME.hf.spaces
+        run: curl https://web-app-practice.onrender.com
