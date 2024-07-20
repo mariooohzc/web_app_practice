@@ -4,7 +4,7 @@ import aiocron
 import requests
 
 
-@aiocron.crontab("*/5 * * * *")
+@aiocron.crontab("*/1 * * * *")
 async def self_ping():
     response = requests.get("your_fastapi_endpoint")
     print(f"Health check response: {response.status_code}")
