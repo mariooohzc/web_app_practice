@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches: main
+    paths: Dockerfile
+
+concurrency: ${{ github.job }}-${{ github.ref }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4.1.7
+      with:
+        show-progress: false
+
+    - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
