@@ -11,10 +11,7 @@ on:
     #       │ │ │   │ │
     #       │ │ │   │ │
     #       * * *   * *
-    - cron: '* * * * *'
-
-env:
-  REPOSITORY_NAME: ${{ github.event.repository.name }}
+    - cron: '*/2 * * * *'
 
 jobs:
   warm:
