@@ -16,4 +16,4 @@ async def self_ping():
 
 @app.get("/")
 async def index():
-    return {"message": "testing again"}
+    return {"message": "testing again 2"}
