@@ -9,6 +9,7 @@ app = FastAPI()
 @aiocron.crontab("*/1 * * * *")
 async def self_ping():
     response = requests.get("https://web-app-practice.onrender.com")
+    print("response testing:", response)
     print(f"Health check response: {response.status_code}, testing")
 
 
