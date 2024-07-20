@@ -64,13 +64,18 @@ jobs:
       with:
         show-progress: false
 
-    - name: Deploy to production
-      uses: johnbeynon/render-deploy-action@v0.0.8
-      with:
-        service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
-        api-key: ${{ secrets.MY_RENDER_API_KEY }}
-
-    - name: Check deployment status
+    - name: Deploy
+      # Only run this step if the branch is main
+      if: github.ref == 'refs/heads/main'
+      env:
+        deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
       run: |
-        curl -X GET "https://api.render.com/deploy/${{ secrets.MY_RENDER_SERVICE_ID }}?key=${{ secrets.DEPLOY_KEY }}" \
-              -H "Authorization: Bearer ${{ secrets.MY_RENDER_API_KEY }}"
+        curl "$deploy_url"
+
+    # - name: Deploy to production
+    #   uses: johnbeynon/render-deploy-action@v0.0.8
+    #   with:
+    #     service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+    #     api-key: ${{ secrets.MY_RENDER_API_KEY }}
+
+    
