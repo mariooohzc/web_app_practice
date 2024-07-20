@@ -4,13 +4,13 @@ import aiocron
 import requests
 
 
+app = FastAPI()
+
+
 @aiocron.crontab("*/1 * * * *")
 async def self_ping():
     response = requests.get("your_fastapi_endpoint")
     print(f"Health check response: {response.status_code}")
-
-
-app = FastAPI()
 
 
 @app.get("/")
