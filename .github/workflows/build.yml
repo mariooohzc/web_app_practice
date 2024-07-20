@@ -51,7 +51,7 @@ jobs:
         with:
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          file: Dockerfile.build
+          file: Dockerfile
           push: true
           cache-from: type=gha
           cache-to: type=gha,mode=max
