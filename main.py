@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import aiocron
 import requests
-import pkg_resources
+import asyncio
 
 
 app = FastAPI()
@@ -17,10 +17,9 @@ async def self_ping():
 
 @app.get("/")
 async def index():
-    installed_packages = pkg_resources.working_set
-    for package in installed_packages:
-        print(f"{package.key}=={package.version}")
-
     return {
         "message": "checking if packages are installed and whether poetry installation is working"
     }
+
+
+asyncio.get_event_loop().run_forever()
