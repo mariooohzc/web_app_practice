@@ -16,4 +16,6 @@ app = FastAPI()
 
 @app.get("/")
 async def index():
-    return {"message": "testing again without job deploy"}
+    return {
+        "message": "testing again need to have deploy, this is a confirmation that the deploy code in yaml is necessary"
+    }
